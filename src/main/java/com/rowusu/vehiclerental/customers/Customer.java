@@ -102,7 +102,7 @@ public class Customer implements LoyaltyProgram, Ratable {
             throw new IllegalStateException("Customer is not eligible for new rentals.");
         }
 
-        // Add to current rentals
+        // Add to the current rentals
         addCurrentRental(vehicle, days);
 
         // Add to the rental history
