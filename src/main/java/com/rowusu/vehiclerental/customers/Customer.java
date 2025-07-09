@@ -105,7 +105,7 @@ public class Customer implements LoyaltyProgram, Ratable {
         // Add to current rentals
         addCurrentRental(vehicle, days);
 
-        // Add to rental history
+        // Add to the rental history
         addToRentalHistory(vehicle);
     }
 
