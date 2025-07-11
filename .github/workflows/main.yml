@@ -13,11 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup JDK 23
+      - name: Setup JDK 21
         uses: actions/checkout@v4
         with:
           distribution: 'corretto'
-          java-version: 23
+          java-version: 21
       - name: Unit Tests
         run: mvn -B test --file pom.xml
 
