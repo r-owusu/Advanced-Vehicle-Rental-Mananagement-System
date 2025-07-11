@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           distribution: 'corretto'
-          java-version: '21'
+          java-version: 21
       - name: Unit Tests
         run: mvn -B test --file pom.xml
 
