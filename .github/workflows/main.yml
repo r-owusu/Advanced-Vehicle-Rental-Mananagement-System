@@ -16,8 +16,8 @@ jobs:
       - name: Setup JDK 23
         uses: actions/checkout@v4
         with:
-          distribution: 'corretto'
-          java-version: '21'
+          distribution: 'temurin'
+          java-version: '24'
       - name: Unit Tests
         run: mvn -B test --file pom.xml
 
