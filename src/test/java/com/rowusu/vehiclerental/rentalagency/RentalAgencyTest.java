@@ -64,11 +64,26 @@ public class RentalAgencyTest {
     }
 
     // Test that rental fails for ineligible customers
-    @Test
-    public void testProcessRental_Failure_CustomerNotEligible() {
+  /*  @Test
+   public void testProcessRental_Failure_CustomerNotEligible() {
         customer1.setEligibleForRental(false); // Make customer ineligible
         rentalAgency.processRental(customer1, car1, 5);
         assertTrue(car1.isAvailable()); // The car should remain available
+    }*/
+    @Test
+    public void testProcessRental_Failure_CustomerNotEligible() {
+        Vehicle car2 = new Car("V003", "Honda Accord", 90.0, true, true, false);
+        rentalAgency.addVehicleToFleet(car2);
+
+        // Fill up customer1's rental limit
+        rentalAgency.processRental(customer1, car1, 3);
+        rentalAgency.processRental(customer1, car2, 2);
+
+        // Now try to rent a third vehicle
+        Vehicle car3 = new Car("V004", "Nissan Altima", 95.0, true, true, false);
+        rentalAgency.addVehicleToFleet(car3);
+
+        assertThrows(CustomerNotEligible.class, () -> rentalAgency.rentVehicle(car3, customer1, 1));
     }
 
     // Test that rental period must be greater than zero
@@ -116,10 +131,27 @@ public class RentalAgencyTest {
     }
 
     // Test that rental fails for an ineligible customer
-    @Test
+   /* @Test
     public void testRentVehicle_Failure_CustomerNotEligible() {
         customer1.setEligibleForRental(false); // Make customer ineligible
         assertThrows(CustomerNotEligible.class, () -> rentalAgency.rentVehicle(car1, customer1, 5), "Customer is not eligible for rental.");
+    }*/
+    @Test
+    public void testRentVehicle_Failure_CustomerNotEligible() {
+        // Create additional vehicles to reach rental limit
+        Vehicle car2 = new Car("V003", "Honda Accord", 90.0, true, true, false);
+        Vehicle car3 = new Car("V004", "Nissan Altima", 95.0, true, true, false);
+
+        rentalAgency.addVehicleToFleet(car2);
+        rentalAgency.addVehicleToFleet(car3);
+
+        // Fill up customer1's rental limit
+        rentalAgency.processRental(customer1, car1, 3);
+        rentalAgency.processRental(customer1, car2, 2);
+
+        // Attempt to rent a third vehicle — should fail
+        assertThrows(CustomerNotEligible.class, () -> rentalAgency.rentVehicle(car3, customer1, 1),
+                "Customer is not eligible for rental.");
     }
 
     // Test that invalid rental period throws exception

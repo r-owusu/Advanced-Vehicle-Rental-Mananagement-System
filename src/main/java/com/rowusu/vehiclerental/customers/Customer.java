@@ -16,7 +16,7 @@ public class Customer implements LoyaltyProgram, Ratable {
     private final  Map<Vehicle, Integer> currentRentals; // Current rentals: Vehicle -> Rental days
     private int rentalLimit = 2; // Max number of concurrent rentals allowed
     private List<Integer> ratings; // List to store all ratings
-    private boolean eligibleForRental;
+ //   private boolean eligibleForRental;
 
     // Constructor
     public Customer(String name, String customerId) {
@@ -25,7 +25,7 @@ public class Customer implements LoyaltyProgram, Ratable {
         this.rentalHistory = new ArrayList<>();
         this.currentRentals = new HashMap<>();
         this.ratings = new ArrayList<>();
-        this.eligibleForRental = true; // Default to eligible
+   //     this.eligibleForRental = true; // Default to eligible
 
     }
 
@@ -72,9 +72,13 @@ public class Customer implements LoyaltyProgram, Ratable {
         // Example criteria: No more than `rentalLimit` active rentals
         return currentRentals.size() < rentalLimit;
     }*/
-    public boolean isEligibleForRental() {
+    /*public boolean isEligibleForRental() {
         return eligibleForRental;
+    }*/
+    public boolean isEligibleForRental() {
+        return currentRentals.size() < rentalLimit;
     }
+
     private int loyaltyPoints;  // Track customer's points
 
     @Override
@@ -136,8 +140,8 @@ public class Customer implements LoyaltyProgram, Ratable {
     public int hashCode() {
         return Objects.hash(customerId); // Use customerId for generating hash code
     }
-    public void setEligibleForRental(boolean eligibleForRental) {
+   /* public void setEligibleForRental(boolean eligibleForRental) {
         this.eligibleForRental = eligibleForRental;
-    }
+    }*/
 }
 
