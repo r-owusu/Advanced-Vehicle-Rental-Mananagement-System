@@ -43,4 +43,4 @@ jobs:
           context: .
           dockerfile: Dockerfile
           push: true
-          tags: ${{secrets.DOCKER_HUB_USERNAME}}/Advanced-Vehicle-Rental-Mananagement-System:$(date-'%Y-%m-%d%H-%M-%S')
+          tags: ${{secrets.DOCKER_HUB_USERNAME}}/Advanced-Vehicle-Rental-Mananagement-System:$(date +'%Y-%m-%d%H-%M-%S')
