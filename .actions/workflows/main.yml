@@ -1,0 +1,27 @@
+name: Build and Deploy Vehicle Rental app
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    name: Build and Deploy Vehicle Rental app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 23
+        uses: actions/checkout@v4
+        with:
+          distribution: 'corretto'
+          java-version: 23
+      - name: Unit Tests
+        run: mvn -B test --file pom.xml
+
+      - name: Build the application
+        run: |
+          nvm clean
+          mvn -B package --file pom.xml
