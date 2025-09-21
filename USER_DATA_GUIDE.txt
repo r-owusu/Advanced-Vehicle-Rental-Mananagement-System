@@ -1,0 +1,94 @@
+🚗 VEHICLE RENTAL MANAGEMENT SYSTEM - USER DATA GUIDE 🚗
+===========================================================
+
+🎉 SUCCESS! Your system now works with YOUR OWN DATA instead of dummy data!
+
+📋 AVAILABLE APPLICATIONS:
+
+1. 🎯 INTERACTIVE APP (Use Your Own Data):
+   Command: java -cp compiled com.rowusu.vehiclerental.service.InteractiveApp
+   
+   Features:
+   ✅ Add YOUR vehicles with YOUR specifications
+   ✅ Create YOUR customers with real information
+   ✅ Process real rental transactions
+   ✅ Set YOUR own pricing and features
+   ✅ Generate reports based on YOUR business
+   
+   Menu Options:
+   🚗 Manage Vehicles - Add cars, motorcycles, trucks with custom features
+   👤 Manage Customers - Create customers with loyalty programs
+   📝 Process Rental - Rent vehicles to your customers
+   🔄 Process Return - Handle vehicle returns
+   ⭐ Rate Vehicle/Customer - Quality management
+   🏆 Manage Loyalty Program - Customer retention
+   📊 Generate Reports - Business intelligence
+
+2. 📊 USER DATA DEMO (Example with Custom Data):
+   Command: java -cp compiled com.rowusu.vehiclerental.service.UserDataDemo
+   
+   Shows how to:
+   ✅ Create vehicles with YOUR specifications
+   ✅ Set up customers with real names and loyalty points
+   ✅ Process realistic rental scenarios
+   ✅ Generate business reports with YOUR data
+
+3. 🧪 TESTING SUITE (Verify Everything Works):
+   Command: java -cp compiled com.rowusu.vehiclerental.service.ComprehensiveTest
+   
+   Validates:
+   ✅ All features work correctly
+   ✅ Error handling
+   ✅ Business rules
+   ✅ Edge cases
+
+4. 🎭 DEMO MODE (Pre-loaded Sample Data):
+   Command: java -cp compiled com.rowusu.vehiclerental.service.Demo
+   
+   Shows system capabilities with sample data
+
+🚀 RECOMMENDED WORKFLOW:
+
+Step 1: Run the Interactive App
+   java -cp compiled com.rowusu.vehiclerental.service.InteractiveApp
+
+Step 2: Add Your Vehicles
+   - Choose vehicle type (Car, Motorcycle, Truck)
+   - Enter YOUR vehicle details (ID, model, rate)
+   - Configure features specific to YOUR vehicles
+   - Set pricing based on YOUR business model
+
+Step 3: Create Your Customers
+   - Enter real customer names and IDs
+   - Set appropriate loyalty points
+   - Track customer eligibility
+
+Step 4: Process Real Rentals
+   - Select from YOUR vehicles
+   - Choose YOUR customers
+   - Set realistic rental periods
+   - Calculate costs with YOUR pricing
+
+Step 5: Generate YOUR Reports
+   - View YOUR fleet status
+   - See YOUR active rentals
+   - Calculate YOUR revenue
+
+💡 BUSINESS BENEFITS:
+
+✅ NO MORE DUMMY DATA - Use real business information
+✅ CUSTOM PRICING - Set rates that match your market
+✅ REAL CUSTOMERS - Track actual customer information
+✅ FLEXIBLE FEATURES - Add features specific to your vehicles
+✅ BUSINESS REPORTS - Generate reports with your actual data
+✅ SCALABLE SYSTEM - Add as many vehicles/customers as needed
+
+🎯 NEXT STEPS:
+
+1. Start with the Interactive App to input your real data
+2. Build your fleet with your actual vehicles
+3. Add your real customers
+4. Process your rental transactions
+5. Generate reports for your business analysis
+
+Your Vehicle Rental Management System is now ready for real-world use with YOUR data! 🌟

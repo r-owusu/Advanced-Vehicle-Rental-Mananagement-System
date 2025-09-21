@@ -16,15 +16,29 @@ public class RentalAgency {
 
     // Map to track currently rented vehicles and their customers
     private Map<Vehicle, Customer> activeRentals;
+    
+    // List to manage customers
+    private List<Customer> customers;
 
     // Constructor
     public RentalAgency() {
         this.vehicleFleet = new ArrayList<>();
         this.activeRentals = new HashMap<>();
-
+        this.customers = new ArrayList<>();
     }
+    
     public List<Vehicle> getFleet() {
         return vehicleFleet;
+    }
+    
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+    
+    // Add a customer
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
+        System.out.println("Customer added: " + customer.getName());
     }
     // Add a vehicle to the fleet
     public void addVehicleToFleet(Vehicle vehicle) {

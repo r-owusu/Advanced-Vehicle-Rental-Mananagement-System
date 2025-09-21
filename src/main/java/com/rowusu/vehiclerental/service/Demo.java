@@ -5,29 +5,30 @@ import com.rowusu.vehiclerental.model.*;
 import com.rowusu.vehiclerental.rentalagency.RentalAgency;
 import com.rowusu.vehiclerental.exceptions.*;
 
-import java.util.Scanner;
-
-public class Main {
-    private static RentalAgency agency;
-    private static Scanner scanner;
-
+public class Demo {
     public static void main(String[] args) {
-        System.out.println("🚗 Welcome to Advanced Vehicle Rental Management System 🚗");
-        System.out.println("=========================================================");
+        System.out.println("🚗 Welcome to Advanced Vehicle Rental Management System - DEMO MODE 🚗");
+        System.out.println("====================================================================");
         
-        agency = new RentalAgency();
-        scanner = new Scanner(System.in);
+        RentalAgency agency = new RentalAgency();
         
         // Initialize sample data
-        initializeSampleData();
+        initializeSampleData(agency);
         
-        // Start interactive menu
-        runInteractiveMenu();
+        // Run all demonstrations
+        demonstrateVehicleManagement(agency);
+        demonstrateRentalProcess(agency);
+        demonstrateReturnProcess(agency);
+        demonstrateRatingSystem(agency);
+        demonstrateLoyaltyProgram(agency);
+        generateReports(agency);
+        demonstrateErrorHandling(agency);
         
-        scanner.close();
+        System.out.println("\n🎉 Demo completed! Your Vehicle Rental Management System is fully functional!");
+        System.out.println("You can run the interactive version using the Main class.");
     }
     
-    private static void initializeSampleData() {
+    private static void initializeSampleData(RentalAgency agency) {
         System.out.println("\n🔧 Initializing sample data...");
         
         // Create various vehicles
@@ -53,87 +54,12 @@ public class Main {
         agency.addVehicleToFleet(bike1);
         agency.addVehicleToFleet(truck1);
         
-        // Create sample customers
-        Customer customer1 = new Customer("John Smith", "CUST001");
-        Customer customer2 = new Customer("Sarah Johnson", "CUST002");
-        Customer customer3 = new Customer("Mike Wilson", "CUST003");
-        
         System.out.println("✅ Sample data initialized successfully!");
         System.out.println("   - 4 vehicles added to fleet");
-        System.out.println("   - 3 customers created");
         System.out.println("   - Various features configured");
     }
     
-    private static void runInteractiveMenu() {
-        boolean running = true;
-        
-        while (running) {
-            displayMainMenu();
-            int choice = getChoice();
-            
-            switch (choice) {
-                case 1:
-                    demonstrateVehicleManagement();
-                    break;
-                case 2:
-                    demonstrateRentalProcess();
-                    break;
-                case 3:
-                    demonstrateReturnProcess();
-                    break;
-                case 4:
-                    demonstrateRatingSystem();
-                    break;
-                case 5:
-                    demonstrateLoyaltyProgram();
-                    break;
-                case 6:
-                    generateReports();
-                    break;
-                case 7:
-                    demonstrateErrorHandling();
-                    break;
-                case 8:
-                    System.out.println("\n👋 Thank you for using the Vehicle Rental Management System!");
-                    running = false;
-                    break;
-                default:
-                    System.out.println("❌ Invalid choice. Please try again.");
-            }
-            
-            if (running) {
-                System.out.println("\nPress Enter to continue...");
-                scanner.nextLine();
-            }
-        }
-    }
-    
-    private static void displayMainMenu() {
-        System.out.println("\n" + "=".repeat(50));
-        System.out.println("🏢 VEHICLE RENTAL MANAGEMENT SYSTEM");
-        System.out.println("=".repeat(50));
-        System.out.println("1. 🚗 Vehicle Fleet Management");
-        System.out.println("2. 📝 Rent a Vehicle");
-        System.out.println("3. 🔄 Return a Vehicle");
-        System.out.println("4. ⭐ Rating System Demo");
-        System.out.println("5. 🏆 Loyalty Program Demo");
-        System.out.println("6. 📊 Generate Reports");
-        System.out.println("7. ⚠️  Error Handling Demo");
-        System.out.println("8. 🚪 Exit");
-        System.out.println("=".repeat(50));
-        System.out.print("Enter your choice (1-8): ");
-    }
-    
-    private static int getChoice() {
-        try {
-            String input = scanner.nextLine().trim();
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            return -1;
-        }
-    }
-    
-    private static void demonstrateVehicleManagement() {
+    private static void demonstrateVehicleManagement(RentalAgency agency) {
         System.out.println("\n🚗 VEHICLE FLEET MANAGEMENT DEMO");
         System.out.println("=".repeat(40));
         
@@ -163,7 +89,7 @@ public class Main {
         }
     }
     
-    private static void demonstrateRentalProcess() {
+    private static void demonstrateRentalProcess(RentalAgency agency) {
         System.out.println("\n📝 RENTAL PROCESS DEMO");
         System.out.println("=".repeat(40));
         
@@ -211,7 +137,7 @@ public class Main {
         }
     }
     
-    private static void demonstrateReturnProcess() {
+    private static void demonstrateReturnProcess(RentalAgency agency) {
         System.out.println("\n🔄 VEHICLE RETURN DEMO");
         System.out.println("=".repeat(40));
         
@@ -245,7 +171,7 @@ public class Main {
         }
     }
     
-    private static void demonstrateRatingSystem() {
+    private static void demonstrateRatingSystem(RentalAgency agency) {
         System.out.println("\n⭐ RATING SYSTEM DEMO");
         System.out.println("=".repeat(40));
         
@@ -270,7 +196,7 @@ public class Main {
         System.out.printf("⭐ Customer Average Rating: %.1f/5\n", sampleCustomer.getAverageRating());
     }
     
-    private static void demonstrateLoyaltyProgram() {
+    private static void demonstrateLoyaltyProgram(RentalAgency agency) {
         System.out.println("\n🏆 LOYALTY PROGRAM DEMO");
         System.out.println("=".repeat(40));
         
@@ -298,7 +224,7 @@ public class Main {
         System.out.println("🥇 Gold (100+ points): 10% discount + premium support + free upgrades");
     }
     
-    private static void generateReports() {
+    private static void generateReports(RentalAgency agency) {
         System.out.println("\n📊 SYSTEM REPORTS");
         System.out.println("=".repeat(40));
         
@@ -326,7 +252,7 @@ public class Main {
             (totalRentals * 100.0) / agency.getFleet().size());
     }
     
-    private static void demonstrateErrorHandling() {
+    private static void demonstrateErrorHandling(RentalAgency agency) {
         System.out.println("\n⚠️ ERROR HANDLING DEMO");
         System.out.println("=".repeat(40));
         
@@ -343,49 +269,12 @@ public class Main {
             System.out.println("✅ Caught Exception: " + e.getMessage());
         }
         
-        // Test 2: Vehicle not available
-        System.out.println("\n🧪 Test 2: Vehicle Not Available");
-        try {
-            // Find a rented vehicle
-            Vehicle rentedVehicle = null;
-            for (Vehicle vehicle : agency.getFleet()) {
-                if (!vehicle.isAvailable()) {
-                    rentedVehicle = vehicle;
-                    break;
-                }
-            }
-            if (rentedVehicle != null) {
-                agency.rentVehicle(rentedVehicle, customer, 3);
-            } else {
-                System.out.println("ℹ️ No rented vehicles available for this test");
-            }
-        } catch (VehicleNotAvailable e) {
-            System.out.println("✅ Caught VehicleNotAvailable: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("✅ Caught Exception: " + e.getMessage());
-        }
-        
-        // Test 3: Invalid rating
-        System.out.println("\n🧪 Test 3: Invalid Rating");
+        // Test 2: Invalid rating
+        System.out.println("\n🧪 Test 2: Invalid Rating");
         try {
             agency.rateVehicle(agency.getFleet().get(0), 10); // Invalid rating
         } catch (IllegalArgumentException e) {
             System.out.println("✅ Caught IllegalArgumentException: " + e.getMessage());
-        }
-        
-        // Test 4: Customer rental limit
-        System.out.println("\n🧪 Test 4: Customer Rental Limit");
-        try {
-            // Try to rent multiple vehicles to exceed limit
-            for (Vehicle vehicle : agency.getFleet()) {
-                if (vehicle.isAvailable()) {
-                    agency.rentVehicle(vehicle, customer, 2);
-                }
-            }
-        } catch (CustomerNotEligible e) {
-            System.out.println("✅ Caught CustomerNotEligible: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("✅ Caught Exception: " + e.getMessage());
         }
         
         System.out.println("\n✅ Error handling demonstration completed!");
